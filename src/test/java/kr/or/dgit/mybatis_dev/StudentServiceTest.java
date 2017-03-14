@@ -1,11 +1,10 @@
 package kr.or.dgit.mybatis_dev;
 
 
-import java.util.Calendar;
 import java.util.Collections;
-import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -16,7 +15,6 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
-import kr.or.dgit.mybatis_dev.dto.PhoneNumber;
 import kr.or.dgit.mybatis_dev.dto.Student;
 import kr.or.dgit.mybatis_dev.services.StudentService;
 
@@ -51,7 +49,7 @@ public class StudentServiceTest {
 	
 	
 	@Test
-	public void pTestSelectStudentByNoForResultMap() {
+	public void aTestSelectStudentByNoForResultMap() {
 		Student student = new Student();
 		student.setStudId(1);
 		Student selectStudent = studentService.selectStudentByNoForResultMap(student);
@@ -59,11 +57,57 @@ public class StudentServiceTest {
 		
 	}
 	@Test
-	public void qTestSelectStudentByAllForResultMap() {
+	public void bTestSelectStudentByAllForResultMap() {
 		List<Student> lists = studentService.selectStudentByAllForResultMap();
 		List<Student> emptyLists = Collections.emptyList();
 		Assert.assertNotEquals(emptyLists, lists);
 		
+	}
+	
+	@Test
+	public void cTestSelectStudentByNoForHashMap() {
+		Student student = new Student();
+		student.setStudId(1);
+		
+		Map<String, Object>  selectStudent = studentService.selectStudentByNoForHashMap(student);
+		for(Entry<String, Object> e : selectStudent.entrySet()){
+			System.out.printf("key : %s -> value : %s %n", e.getKey(), e.getValue());
+		}
+		Assert.assertNotNull(selectStudent);
+		
+	}
+
+	@Test
+	public void dTestSelectStudentByAllForHashMap() {
+		List<Map<String, Object>> lists = studentService.selectStudentByAllForHashMap();
+		List<Map<String, Object>> emptyLists = Collections.emptyList();
+
+		for (Map<String, Object> map : lists) {
+			for (Entry<String, Object> e : map.entrySet()) {
+				System.out.printf("key : %s -> value : %s %n", e.getKey(), e.getValue());
+			}
+
+		}
+		Assert.assertNotEquals(emptyLists, lists);
+
+	}
+	
+	@Test
+	public void eTestSelectStudentByNoWithAddress() {
+		Student student = new Student();
+		student.setStudId(1);
+		Student selectStudent = studentService.selectStudentByNoWithAddress(student);
+		Assert.assertNotNull(selectStudent);
+
+	}
+	
+	@Test
+	public void fTestSelectStudentByNoAssociationAddress() {
+		Student student = new Student();
+		student.setStudId(1);
+		Student selectStudent = studentService.selectStudentByNoAssociationAddress(student);
+		Assert.assertNotNull(selectStudent);
+
 	}
 	
 }

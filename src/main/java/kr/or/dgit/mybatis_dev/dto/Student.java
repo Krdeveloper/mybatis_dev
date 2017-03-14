@@ -8,8 +8,15 @@ public class Student {
 	private String email;
 	private Date dob;
 	private PhoneNumber phone;
+	private Address address;
 	
 	
+	public Address getAddress() {
+		return address;
+	}
+	public void setAddress(Address address) {
+		this.address = address;
+	}
 	public Student(int studId, String name, String email, Date dob, PhoneNumber phone) {
 		super();
 		this.studId = studId;
@@ -62,7 +69,7 @@ public class Student {
 	}
 	@Override
 	public String toString() {
-		return String.format("%s %s %s %s %s", studId, name, email, dob, phone);
+		return String.format("%s %s %s %s %s %s", studId, name, email, dob, phone, address);
 	}
 	
 	
