@@ -32,7 +32,7 @@
 	</resultMap>
 
 	<resultMap type="Student" id="StudentResultAssociation"
-		extends="StudentResultExtends">
+		extends="StudentResult">
 		<association property="address"
 			resultMap="kr.or.dgit.mybatis_dev.dao.AddressMapper.AddressResult"></association>
 	</resultMap>
