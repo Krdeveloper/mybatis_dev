@@ -2,6 +2,8 @@ package kr.or.dgit.mybatis_dev;
 
 
 import java.util.Collections;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -15,6 +17,7 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
+import kr.or.dgit.mybatis_dev.dto.PhoneNumber;
 import kr.or.dgit.mybatis_dev.dto.Student;
 import kr.or.dgit.mybatis_dev.services.StudentService;
 
@@ -47,7 +50,7 @@ public class StudentServiceTest {
 
 	
 	
-	
+	/*
 	@Test
 	public void aTestSelectStudentByNoForResultMap() {
 		Student student = new Student();
@@ -109,5 +112,23 @@ public class StudentServiceTest {
 		Assert.assertNotNull(selectStudent);
 
 	}
-	
+	*/
+	@Test
+	public void testUpdateSetStudent() {
+		Student student = new Student();
+		student.setStudId(1);
+		student.setEmail("testtt@test.co.kr");
+		student.setPhone(new PhoneNumber("932-234-3211"));
+		student.setDob(new Date());
+		
+		int result = studentService.updateSetStudent(student);
+		Assert.assertSame(1, result);
+		student.setEmail("timothy111@gmail.com");
+		student.setPhone(new PhoneNumber("123-123-3243"));
+		student.setDob(new GregorianCalendar(1988, 03, 03).getTime());
+		
+		result = studentService.updateSetStudent(student);
+		Assert.assertSame(1, result);
+
+	}
 }

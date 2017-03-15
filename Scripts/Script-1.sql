@@ -94,3 +94,17 @@ select T.TUTOR_ID, T.NAME AS TUTOR_NAME, EMAIL, C.COURSE_ID, C.NAME, DESCRIPTION
 		FROM TUTORS T LEFT OUTER JOIN ADDRESSES A ON T.ADDR_ID=A.ADDR_ID
 			LEFT OUTER JOIN COURSES C ON T.TUTOR_ID=C.TUTOR_ID
 		WHERE T.TUTOR_ID=1;
+		
+select *
+from courses
+where tutor_id=1 
+and name like '%java%' 
+and START_DATE >= '2013-03-01'
+and END_DATE <= '2013-05-01';
+
+/*select *
+from courses
+where TUTOR_ID =1 or TUTOR_ID=2;*/
+select *
+from courses
+where TUTOR_ID in (1,2);

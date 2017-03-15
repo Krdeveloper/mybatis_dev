@@ -57,4 +57,21 @@ public class StudentService {
 		}
 	}
 	
+	public int updateSetStudent(Student student){
+		log.debug("updateSetStudent()");
+		SqlSession sqlSession = MybatisSqlSessionFactory.openSession();
+		try{
+			StudentMapper studentMapper = sqlSession.getMapper(StudentMapper.class);
+			int res = studentMapper.updateSetStudent(student);
+			sqlSession.commit();
+			return res;
+		}catch(Exception e){
+			sqlSession.rollback();
+			e.printStackTrace();
+			throw new RuntimeException(e.getCause());
+		}finally{
+			sqlSession.close();
+		}
+	}
+	
 }

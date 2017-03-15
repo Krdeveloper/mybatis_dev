@@ -19,10 +19,10 @@ public class SqlSessionTest {
 	public static void tearDownAfterClass() throws Exception {
 		sqlSessionFactory = null;
 	}
-
+/*
 	@Test
 	public void testSqlSession() {
 		Assert.assertNotNull(sqlSessionFactory.openSession());
-	}
+	}*/
 
 }
