@@ -74,4 +74,15 @@ public class StudentService {
 		}
 	}
 	
+	public int insertEnumStudent(Student student){
+		log.debug("insertEnumStudent()");
+		int res=-1;
+		try(SqlSession sqlSession = MybatisSqlSessionFactory.openSession();){
+			res = sqlSession.insert(namespace+".insertEnumStudent", student);
+			sqlSession.commit();
+		}
+		return res;
+		
+	}
+	
 }

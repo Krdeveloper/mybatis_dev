@@ -7,7 +7,31 @@ public class Tutor {
 	private String name;
 	private String email;
 	private Address address;
+	private Gender gender;
 	private List<Course> courses;
+	private PhoneNumber phone;
+	
+	
+	
+	
+	public Tutor() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Tutor(int tutorId, String name, String email, Address address, Gender gender) {
+	
+		this.tutorId = tutorId;
+		this.name = name;
+		this.email = email;
+		this.address = address;
+		this.gender = gender;
+	}
+	public Gender getGender() {
+		return gender;
+	}
+	public void setGender(Gender gender) {
+		this.gender = gender;
+	}
 	public int getTutorId() {
 		return tutorId;
 	}
@@ -40,8 +64,8 @@ public class Tutor {
 	}
 	@Override
 	public String toString() {
-		return String.format("%s %s %s %s %s", tutorId, name, email,
-				address, courses);
+		return String.format("%s %s %s %s %s %s", tutorId, name, email,
+				address, courses, gender);
 	}
 	
 	

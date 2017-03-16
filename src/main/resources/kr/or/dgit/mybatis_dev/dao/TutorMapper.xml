@@ -14,4 +14,9 @@
 			LEFT OUTER JOIN COURSES C ON T.TUTOR_ID=C.TUTOR_ID
 		WHERE T.TUTOR_ID=#{tutorId}
 	</select>
+	
+	<!-- <insert id="insertTutor" parameterType="Tutor">
+		insert into tutors (TUTOR_ID, NAME, EMAIL, PHONE,  GENDER)
+		VALUES(#{tutorId), #{name}, #{email},#{phone},#{gender})
+	</insert> -->
 </mapper>

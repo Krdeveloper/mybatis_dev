@@ -20,6 +20,7 @@ CREATE TABLE STUDENTS (
   PRIMARY KEY (STUD_ID),
   CONSTRAINT FK_STUDENTS_ADDR FOREIGN KEY (ADDR_ID)  REFERENCES ADDRESSES (ADDR_ID)
 );
+ALTER TABLE mybatis_dev.students ADD gender varchar(10) NULL ;
 
 
 CREATE TABLE TUTORS (
@@ -34,6 +35,8 @@ CREATE TABLE TUTORS (
   PRIMARY KEY (TUTOR_ID),
   CONSTRAINT FK_TUTORS_ADDR FOREIGN KEY (ADDR_ID)   REFERENCES ADDRESSES (ADDR_ID)  
 );
+ALTER TABLE mybatis_dev.tutors ADD gender varchar(10) NULL ;
+
 
 CREATE TABLE COURSES (
   COURSE_ID INT(11) NOT NULL AUTO_INCREMENT,
@@ -108,3 +111,14 @@ where TUTOR_ID =1 or TUTOR_ID=2;*/
 select *
 from courses
 where TUTOR_ID in (1,2);
+
+select *
+from students;
+
+create table user_pic(
+	id int(11) not null auto_increment,
+	name varchar(50) default null,
+	pic blob,
+	bio longtext,
+	primary key(id)
+);

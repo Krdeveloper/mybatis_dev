@@ -17,6 +17,7 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
+import kr.or.dgit.mybatis_dev.dto.Gender;
 import kr.or.dgit.mybatis_dev.dto.PhoneNumber;
 import kr.or.dgit.mybatis_dev.dto.Student;
 import kr.or.dgit.mybatis_dev.services.StudentService;
@@ -113,7 +114,7 @@ public class StudentServiceTest {
 
 	}
 	*/
-	@Test
+	/*@Test
 	public void testUpdateSetStudent() {
 		Student student = new Student();
 		student.setStudId(1);
@@ -130,5 +131,23 @@ public class StudentServiceTest {
 		result = studentService.updateSetStudent(student);
 		Assert.assertSame(1, result);
 
+	}*/
+	
+	@Test
+	public void testInsertEnumStudent() {
+		Student student = new Student();
+		student.setStudId(4);
+		student.setName("동동동");
+		student.setEmail("testteset@test.co.kr");
+		student.setPhone(new PhoneNumber("123-224-3211"));
+		student.setDob(new Date());
+		student.setGender(Gender.FEMALE);
+		int result = studentService.insertEnumStudent(student);
+		System.out.printf("%s : result %d%n", student, result);
+		Assert.assertSame(1, result);
+		
+
 	}
+	
+	
 }

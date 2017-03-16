@@ -73,6 +73,10 @@
 		<include refid="selectSql"></include>
 	</select>
 	
+	<insert id="insertEnumStudent" parameterType="Student">
+		insert into students (stud_id, name, email,  dob, phone, gender)
+		values(#{studId}, #{name}, #{email}, #{dob}, #{phone},  #{gender})
+	</insert>
 	<update id="updateSetStudent" parameterType="Student">
 		UPDATE STUDENTS
 		<set>
