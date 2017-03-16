@@ -133,7 +133,7 @@ public class StudentServiceTest {
 
 	}*/
 	
-	@Test
+	/*@Test
 	public void testInsertEnumStudent() {
 		Student student = new Student();
 		student.setStudId(4);
@@ -147,7 +147,7 @@ public class StudentServiceTest {
 		Assert.assertSame(1, result);
 		
 
-	}
+	}*/
 	
 	
 }
