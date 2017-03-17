@@ -3,9 +3,10 @@ package kr.or.dgit.mybatis_dev;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-
+import java.io.OutputStream;
 
 import org.junit.AfterClass;
 import org.junit.Assert;
@@ -31,7 +32,7 @@ public class UserPicServiceTest {
 		userPicService = null;
 	}
 
-	@Test
+	/*@Test
 	public void aTestInsertUserPic() {
 		byte[] pic = null;
 		File file = new File(System.getProperty("user.dir")+"\\DataFiles\\babara.jpg");
@@ -49,5 +50,24 @@ public class UserPicServiceTest {
 		int res = userPicService.insertUserPic(userPic);
 		Assert.assertEquals(1, res);
 	}
-
+	*/
+	/*@Test
+	public void bTestInsertUserPic() {
+		UserPic userPic = userPicService.findUserPicById(1);
+		byte[] pic =userPic.getPic();
+		File file = new File(System.getProperty("user.dir")+"\\Download\\babara.jpg");
+		try (OutputStream os = new FileOutputStream(file)){ //1.8버전이라서 close안하고 이렇게 써도 됨
+			os.write(b, off, len);
+			os.flush();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} 
+		
+		Assert.assertEquals(1, res);
+	}
+*/
 }
